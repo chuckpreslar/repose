@@ -17,7 +17,10 @@ var User = Model.extend({
     { name: "latest",  on: "collection" },
     { name: "details", on: "member" },
     { name: "last" }
-  ]
+  ],
+  options: {
+    resource: "users"
+  }
 });
 
 describe("Model", function() {
@@ -40,7 +43,7 @@ describe("Model", function() {
       done();
     });
 
-    it("should provide collection actions", function(done) {
+    it("should provide collection and member actions", function(done) {
       assert.equal("function", typeof User.find, "failed to add `find` for collection");
       assert.equal("function", typeof User.where, "failed to add `where` for collection");
 
@@ -52,6 +55,12 @@ describe("Model", function() {
 
       assert.equal("function", typeof user.details, "failed to set action on member");
 
+      done();
+    });
+
+    it("should proper URLs collection actions", function(done) {
+      assert.equal("/users/latest", User.latest().toURL(), "failed to generate proper URL for collection action");
+      assert.equal("/users/last", User.last().toURL(), "failed to generate proper URL for collection action");
       done();
     });
   });
