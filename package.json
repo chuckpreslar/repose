@@ -1,0 +1,25 @@
+{
+  "name": "repose",
+  "version": "0.0.1",
+  "description": "A RESTful query interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/**/test_*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chuckpreslar/repose.git"
+  },
+  "author": "Chuck Preslar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chuckpreslar/repose/issues"
+  },
+  "homepage": "https://github.com/chuckpreslar/repose",
+  "dependencies": {
+    "rhetoric": "0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
